@@ -7,38 +7,7 @@
             [org.lwjgl LWJGLException]
             [org.lwjgl.opengl Display DisplayMode GL11]))
 
-(defn- draw [w h]
-  (GL11/glMatrixMode GL11/GL_PROJECTION)
-  (GL11/glLoadIdentity)
-  (GL11/glViewport 0 0 w h)
-  (GL11/glOrtho 0 w 0 h 1 1)
 
-  (GL11/glClear (bit-or GL11/GL_COLOR_BUFFER_BIT GL11/GL_DEPTH_BUFFER_BIT))
-  (GL11/glColor3f 0.5 0.5 1.0)
-
-  (GL11/glBegin GL11/GL_QUADS)
-  (GL11/glVertex2f 0 0)
-  (GL11/glVertex2f 300 100)
-  (GL11/glVertex2f 300 300)
-  (GL11/glVertex2f 100 300)
-  (GL11/glEnd)
-
-  (GL11/glColor3f 1.0 0.0 0.0)
-  (doseq [i (range -2000 2000 50)]
-    (GL11/glBegin GL11/GL_QUADS)
-    (GL11/glVertex2f (- i 10) (- i 10))
-    (GL11/glVertex2f (+ i 10) (- i 10))
-    (GL11/glVertex2f (+ i 10) (+ i 10))
-    (GL11/glVertex2f (- i 10) (+ i 10))
-    (GL11/glEnd))
-
-
-  (GL11/glBegin GL11/GL_LINE_LOOP)
-  (GL11/glVertex2f 5 5)
-  (GL11/glVertex2f (- w 5) 5)
-  (GL11/glVertex2f (- w 5) (- h 5))
-  (GL11/glVertex2f 5 (- h 5))
-  (GL11/glEnd))
 
 (defn- create-game []
 ;;  (def game-running (atom true))

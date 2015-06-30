@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [seesaw "1.4.5"]
                  [aleph "0.4.0"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [org.clojure/data.json "0.2.6"]
                  [org.lwjgl.lwjgl/lwjgl "2.9.3"]
                  [org.lwjgl.lwjgl/lwjgl_util "2.9.3"]

@@ -4,6 +4,7 @@
                                  add! listen invoke-later radio-menu-item
                                  button-group selection selection! config]]
             [clagar.gui.game :refer :all]
+            [clagar.proto.game :refer [connect]]
             [clagar.proto.meta.agar :refer [get-regions]]
             [clojure.core.async
              :as async
@@ -48,6 +49,7 @@
 
 (defn create-game-window []
   (let [game-running (atom true)
+        game (atom nil)
 
         regions-menu (menu :text "Regions" :items [(action :name "Loading...")])
         region-buttons (button-group)
@@ -76,9 +78,7 @@
                            :size [640 :by 480]
                            :on-close :nothing
                            :content (border-panel :center game-canvas)
-                           :menubar game-menu)
-
-        region (atom nil)]
+                           :menubar game-menu)]
 
     ;; Fill in regions menu
     ;; TODO: error handling
@@ -89,8 +89,7 @@
           (.add regions-menu
                 (radio-menu-item :group region-buttons :text r)))
         (let [selected (first (config region-buttons :buttons))]
-          (selection! region-buttons selected)
-          (reset! region (config selected :text)))))
+          (selection! region-buttons selected))))
 
     (doseq [gm (map (comp #(subs % 1) str) [:FFA :Team :Experimental])]
       (.add gamemode-menu (radio-menu-item :text gm :group gamemode-buttons)))
@@ -105,7 +104,9 @@
     (listen connect-button
             :action-performed
             (fn [e]
-              (alert (config (selection region-buttons) :text))))
+              (let [region (config (selection region-buttons) :text)
+                    gamemode (config (selection gamemode-buttons) :text)]
+                (reset! game (connect region gamemode)))))
 
     (invoke-later (show! game-window))))
 

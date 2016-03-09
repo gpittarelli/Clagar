@@ -1,8 +1,9 @@
 (defproject clagar "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "Clojure agar.io client"
   :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :license {:name "GNU General Purpose License version 3.0"
+            :url "http://www.gnu.org/licenses/gpl-3.0.en.html"
+            :distribution :repo}
   :plugins [[lein-git-deps "0.0.1-SNAPSHOT"]]
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [seesaw "1.4.5"]

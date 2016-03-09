@@ -1,36 +1,18 @@
-# clagar
+# Clagar
 
-FIXME: description
+An agar.io client written in Clojure. Primarily a learning exercise in
+trying to write a LWJGL game in a functional, multi-threaded way.
 
-## Installation
+## Installation from Source
 
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar clagar-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+    git clone https://github.com/gpittarelli/Clagar.git
+    lein run
+    # or
+    lein uberjar
+    java -jar clagar-0.1.0-standalone.jar
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2016 George Pittarelli
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the GNU General Public License version 3 (GPLv3).

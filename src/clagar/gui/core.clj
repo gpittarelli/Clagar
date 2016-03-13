@@ -11,9 +11,8 @@
              :refer [>! >!! <! <!! chan go go-loop]])
   (:import [javax.swing JOptionPane]
            [java.awt Canvas Graphics Font]
-           [org.lwjgl LWJGLException]
            [org.lwjgl BufferUtils]
-           [org.lwjgl.opengl Display DisplayMode GL11 AWTGLCanvas]
+           [org.lwjgl.opengl GL11 AWTGLCanvas]
            [org.newdawn.slick UnicodeFont Color Image]
            [org.newdawn.slick.font HieroSettings]
            [org.newdawn.slick.font.effects ColorEffect OutlineEffect]))

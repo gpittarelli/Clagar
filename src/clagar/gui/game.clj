@@ -1,12 +1,4 @@
-(ns clagar.gui.game
-  (:require [seesaw.core :refer [border-panel frame menubar
-                                 menu invoke-later show!
-                                 listen]])
-  (:import  [javax.swing JOptionPane]
-            [java.awt Canvas Graphics]
-            [org.lwjgl LWJGLException]
-            [org.lwjgl.opengl Display DisplayMode GL11]))
-
+(ns clagar.gui.game)
 
 
 (defn- create-game []
